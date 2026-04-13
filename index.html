@@ -24,7 +24,6 @@
             background-color: var(--main-white);
             color: var(--text-black);
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         header {
@@ -91,11 +90,10 @@
             color: var(--point-sky);
         }
 
-        /* Roadmap Grid */
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+        /* Roadmap Layout - float 사용 */
+        .roadmap-container {
+            overflow: hidden;
+            margin-top: 2rem;
         }
 
         .semester-card {
@@ -105,6 +103,15 @@
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            float: left;
+            width: 48.5%;
+            margin-right: 3%;
+            margin-bottom: 1.5rem;
+            min-height: 250px;
+        }
+
+        .semester-card:nth-child(even) {
+            margin-right: 0;
         }
 
         .semester-title {
@@ -142,6 +149,7 @@
         }
 
         .contact-box {
+            clear: both;
             background-color: var(--soft-sky);
             padding: 3rem;
             border-radius: 20px;
@@ -157,9 +165,6 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .roadmap-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
@@ -181,7 +186,7 @@
             <p>국립금오공과대학교 컴퓨터공학과 김민재<br>기초부터 실무 역량까지, 단계별 목표를 가진 백엔드 개발자의 여정입니다.</p>
         </div>
 
-        <div id="roadmap" class="roadmap-grid">
+        <div id="roadmap" class="roadmap-container">
             <div class="semester-card">
                 <div class="semester-title">2026-1</div>
                 <div class="semester-goal">CS 기초 및 개발 프로세스 입문</div>
