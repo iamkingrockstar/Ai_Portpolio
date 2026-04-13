@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김민재 | Backend Developer Portfolio</title>
+    <title>김민재 | Backend Developer Roadmap</title>
     <style>
         :root {
             --main-white: #ffffff;
@@ -68,24 +68,21 @@
             font-weight: 600;
         }
 
-        .nav-links a:hover {
-            color: var(--point-sky);
-        }
-
         section {
-            padding: 100px 2rem;
+            padding: 120px 2rem;
             max-width: 1100px;
             margin: 0 auto;
             min-height: 100vh;
         }
 
         .hero {
-            padding-top: 15vh;
+            padding-top: 10vh;
             text-align: left;
+            margin-bottom: 3rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
@@ -94,67 +91,54 @@
             color: var(--point-sky);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
+        /* Roadmap Grid */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
-        .project-grid {
-            margin-top: 3rem;
-            overflow: hidden;
-        }
-
-        .card {
+        .semester-card {
             background: var(--main-white);
             border: 1px solid var(--soft-sky);
-            border-radius: 12px;
-            padding: 2rem;
-            float: left;
-            width: 32%;
-            margin-right: 2%;
-            margin-bottom: 2rem;
-            min-height: 320px;
+            border-left: 5px solid var(--point-sky);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .card:last-child {
-            margin-right: 0;
+        .semester-title {
+            font-size: 1.2rem;
+            color: var(--point-sky);
+            font-weight: 800;
+            margin-bottom: 0.8rem;
         }
 
-        .card-tag {
-            font-size: 0.8rem;
+        .semester-goal {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-black);
+        }
+
+        .task-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-gray);
+        }
+
+        .task-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
             color: var(--point-sky);
             font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-tech-stack {
-            margin-top: 1.5rem;
-        }
-
-        .tech-pill {
-            display: inline-block;
-            background: var(--soft-sky);
-            color: var(--point-sky);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 0.3rem;
-            margin-bottom: 0.3rem;
         }
 
         .contact-box {
@@ -162,18 +146,7 @@
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
-            clear: both;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.8rem 2rem;
-            background-color: var(--point-sky);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            margin-top: 4rem;
         }
 
         footer {
@@ -182,6 +155,10 @@
             border-top: 1px solid var(--soft-sky);
             color: var(--text-gray);
             font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -192,8 +169,7 @@
             <div class="logo">Minjae.Log</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -201,71 +177,81 @@
 
     <section id="home">
         <div class="hero">
-            <h1>기본과 효율을 중시하는 <br><span>백엔드 개발자</span> 김민재입니다.</h1>
-            <p>국립금오공과대학교 컴퓨터공학과 전공 <br>데이터의 흐름을 설계하고 성능 최적화에 몰입하는 과정을 즐깁니다.</p>
-            <a href="#projects" class="btn">프로젝트 및 기술 역량 확인</a>
+            <h1>기본과 효율을 중시하는 <br><span>백엔드 개발자 </span>김민재입니다.</h1>
+            <p>국립금오공과대학교 컴퓨터공학과 김민재<br>기초부터 실무 역량까지, 단계별 목표를 가진 백엔드 개발자의 여정입니다.</p>
         </div>
-    </section>
 
-    <section id="about">
-        <h2 style="font-size: 2.5rem; color: var(--point-sky);">Introduction</h2>
-        <div style="margin-top: 2rem;">
-            <p><strong>"보이지 않는 곳에서 최선의 사용자 경험을 제공합니다."</strong></p>
-            <br>
-            <p>백엔드 개발자로서 서버의 안정성과 빠른 응답 시간은 타협할 수 없는 가치라고 믿습니다.<br>
-            이를 위해 자료구조의 원리를 파악하여 최적의 알고리즘을 선택하고, 최신 Java 21 문법과 Spring Boot를 활용해 확장성 있는 코드를 작성하는 데 집중하고 있습니다.</p>
-            <br>
-            <p>단순한 기능 구현을 넘어, <strong>'왜 이 기술을 사용했는가?'</strong>에 대해 끊임없이 자문하며 문제 해결의 근거를 찾는 개발자로 성장하고 있습니다.</p>
+        <div id="roadmap" class="roadmap-grid">
+            <div class="semester-card">
+                <div class="semester-title">2026-1</div>
+                <div class="semester-goal">CS 기초 및 개발 프로세스 입문</div>
+                <ul class="task-list">
+                    <li>Java 21 기초 및 객체지향 프로그래밍 학습</li>
+                    <li>자료구조(LinkedList) 구현 및 알고리즘 기초</li>
+                    <li>Git/GitHub 및 Vercel 배포 자동화 경험</li>
+                </ul>
+            </div>
+
+            <div class="semester-card">
+                <div class="semester-title">2026-2</div>
+                <div class="semester-goal">웹 백엔드 심화 및 데이터베이스</div>
+                <ul class="task-list">
+                    <li>Spring Boot 기반 REST API 설계 학습</li>
+                    <li>MySQL/MariaDB 데이터 모델링 및 SQL 숙련</li>
+                    <li>JPA를 활용한 효율적인 데이터 접근 기술 습관화</li>
+                </ul>
+            </div>
+
+            <div class="semester-card">
+                <div class="semester-title">2027-1</div>
+                <div class="semester-goal">실전 프로젝트 및 아키텍처</div>
+                <ul class="task-list">
+                    <li>MVC 아키텍처 기반 웹 서비스 개발</li>
+                    <li>JUnit을 활용한 테스트 코드 작성(TDD) 학습</li>
+                    <li>정보처리기사 필기 준비 및 전공 지식 정리</li>
+                </ul>
+            </div>
+
+            <div class="semester-card">
+                <div class="semester-title">2027-2</div>
+                <div class="semester-goal">협업 및 대규모 데이터 처리</div>
+                <ul class="task-list">
+                    <li>교내외 해커톤 참여 및 팀 협업(Agile) 경험</li>
+                    <li>Redis 캐싱 기술 및 대용량 트래픽 최적화 연구</li>
+                    <li>AWS/Docker를 활용한 클라우드 인프라 구축</li>
+                </ul>
+            </div>
+
+            <div class="semester-card">
+                <div class="semester-title">2028-1</div>
+                <div class="semester-goal">포트폴리오 고도화 및 취업 준비</div>
+                <ul class="task-list">
+                    <li>캡스톤 디자인 프로젝트 수행 및 고도화</li>
+                    <li>주요 기업 코딩 테스트 대비 알고리즘 집중 훈련</li>
+                    <li>기술 블로그 운영 및 오픈소스 기여 경험</li>
+                </ul>
+            </div>
+
+            <div class="semester-card" style="border-left: 5px solid #FF4500;">
+                <div class="semester-title" style="color: #FF4500;">2028-2</div>
+                <div class="semester-goal">실무 투입 준비 및 구직 활동</div>
+                <ul class="task-list">
+                    <li>실전 면접 대비 기술 면접 및 인성 면접 준비</li>
+                    <li>IT 기업 인턴십 또는 주니어 엔지니어 입사</li>
+                    <li>지속 가능한 개발자가 되기 위한 네트워킹</li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <section id="projects">
-        <h2 style="font-size: 2.5rem;">Main Projects</h2>
-        <div class="project-grid">
-            <div class="card">
-                <span class="card-tag">Backend Development</span>
-                <h3>동아리 통합 관리 시스템</h3>
-                <p>Spring Boot를 활용한 회원 관리 및 권한 제어 API 설계. JPA를 이용한 데이터베이스 연동 및 RESTful API 구현 연습.</p>
-                <div class="card-tech-stack">
-                    <span class="tech-pill">Java 21</span>
-                    <span class="tech-pill">Spring Boot</span>
-                    <span class="tech-pill">MariaDB / JPA</span>
-                </div>
-            </div>
-            <div class="card">
-                <span class="card-tag">Data Structure & Algorithm</span>
-                <h3>성능 최적화 시뮬레이터</h3>
-                <p>LinkedList 및 Stack을 직접 구현하여 데이터 처리 성능 비교. Big O 분석을 통한 알고리즘 시간 복잡도 개선 및 검증.</p>
-                <div class="card-tech-stack">
-                    <span class="tech-pill">Java</span>
-                    <span class="tech-pill">Data Structure</span>
-                    <span class="tech-pill">Big O Analysis</span>
-                </div>
-            </div>
-            <div class="card">
-                <span class="card-tag">Web Service</span>
-                <h3>강의 노트 아카이브</h3>
-                <p>HTML5와 CSS3 표준을 준수하여 제작한 웹 서비스. 시맨틱 태그 활용 및 유지보수가 용이한 CSS 박스 모델 설계.</p>
-                <div class="card-tech-stack">
-                    <span class="tech-pill">HTML5</span>
-                    <span class="tech-pill">CSS3</span>
-                    <span class="tech-pill">Clean Code</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-box">
-            <h2>준비된 백엔드 신입 개발자 김민재입니다.</h2>
-            <p>기술적 성장을 위해 꾸준히 기록하고 소통합니다.</p>
+        <div id="contact" class="contact-box">
+            <h2>준비된 개발자 김민재입니다.</h2>
+            <p>포기하지 않는 끈기로 2028년의 목표를 달성하겠습니다.</p>
             <div style="font-size: 1.5rem; font-weight: bold; margin: 1rem 0;">nankmj1004@naver.com</div>
-            <a href="mailto:nankmj1004@naver.com" class="btn">채용 및 협업 제안하기</a>
         </div>
     </section>
 
     <footer>
-        <p>2026 Kim Minjae. Specialized in Backend Engineering & CS Fundamentals.</p>
+        <p>2026-2028 Kim Minjae. Roadmap for Backend Engineering Excellence.</p>
     </footer>
 
 </body>
